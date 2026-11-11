@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de contados</title>
+</head>
+<body>
+    <p>Contatos</p>
+    <input placeholder="Meus contantos">
+    <button onclick="search()">Buscar contatos</button>
+    
+</body>
+
+<script>
+
+      let p = document.querySelector("p")
+      let input = document.querySelector("input")
+
+      const numbers = [
+        {name :"Duda", number: "(00) 00000-0001"},
+        {name :"Ju", number: "(00) 00000-0002"},
+        {name :"Chele", number: "(00) 00000-0003"},
+        {name :"Vó", number: "(00) 00000-0004"},
+        {name :"Váleria", number: "(00) 00000-0005"},
+      ]
+
+      function search(){
+        for(let i= 0; i < numbers.length   ;i++){
+
+            if(input.value.toLowerCase() === numbers[i].name.toLowerCase()){
+                p.innerHTML = "Contato Encontrado Nome:" + numbers[i].name + " Tel: " + numbers[i].number
+
+                break
+            } else {
+                p.innerHTML = "Contato não encontrado"
+
+            }
+            
+        }
+      }
+
+
+
+
+</script>
+</html>

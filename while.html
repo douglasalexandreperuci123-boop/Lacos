@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de contatos While</title>
+  </head>
+  <body>
+    <p>Meus contatos</p>
+    <input placeholder="Seus contatos" />
+    <button onclick = "search()">Procurar contato</button>
+  </body>
+
+  <script>
+
+    let p = document.querySelector("p")
+    let input = document.querySelector("input")
+
+
+
+
+    const MeusContatos = [
+      { name: "Duda", number: "(00) 00000-0001" },
+      { name: "Ju", number: "(00) 00000-0002" },
+      { name: "Chele", number: "(00) 00000-0003" },
+      { name: "Vó", number: "(00) 00000-0004" },
+      { name: "Váleria", number: "(00) 00000-0005" },
+    ];
+
+
+function search() {
+  let i = 0; // contador para o while
+  let encontrado = false; // flag para saber se achou o contato
+
+  // enquanto i for menor que o tamanho do array
+  while (i < MeusContatos.length) {
+    // comparamos o valor do input com o nome do contato, ignorando maiúsculas/minúsculas
+    if (input.value.toLowerCase() === MeusContatos[i].name.toLowerCase()) {
+      // contato encontrado, atualiza o <p> com os dados
+      p.innerHTML = `Contato Encontrado! Nome: ${MeusContatos[i].name} Tel: ${MeusContatos[i].number}`;
+      encontrado = true;
+      break; // sai do loop
+    }
+    i++; // incrementa o contador
+  }
+
+  // se não encontrou, mostra mensagem
+  if (!encontrado) {
+    p.innerHTML = "Contato não encontrado";
+  }
+}
+
+  </script>
+</html>
